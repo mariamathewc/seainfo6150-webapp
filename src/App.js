@@ -5,18 +5,24 @@ import DynamicArticle from "./DynamicArticle/DynamicArticle";
 import { isEmpty } from "lodash";
 
 function App() {
-  const [fetchedData, setFetchedData] = useState({});
+    const [fetchedData, setFetchedData] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
       // put data fetching code here!
+        const response = await fetch(
+            "http://demo1390455.mockable.io/articles"
+        );
+        const responseJson = await response.json();
+        console.log("RESPONSE", responseJson)
+        setFetchedData(responseJson);
     };
 
     if (isEmpty(fetchedData)) {
       fetchData();
     }
   }, [fetchedData]);
-
+    //console.log(Object.values(fetchedData)[1])
   return isEmpty(fetchedData) ? null : (
     <div className="App">
       <Switch>
