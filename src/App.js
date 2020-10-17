@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from "react";
 import { Switch, Route } from "react-router-dom";
-import Article from "./Article/Article";
-import DynamicArticle from "./DynamicArticle/DynamicArticle";
+//import Article from "./Article/Article";
+//import DynamicArticle from "./DynamicArticle/DynamicArticle";
+
+import ArticleList from "./ArticleList/ArticleList";
 import { isEmpty } from "lodash";
 
 function App() {
@@ -22,12 +24,20 @@ function App() {
       fetchData();
     }
   }, [fetchedData]);
-    //console.log(Object.values(fetchedData)[1])
-  return isEmpty(fetchedData) ? null : (
+
+
+    const myList =  Object.values(fetchedData) 
+
+    const articles = myList.map((listItem) =>
+
+        listItem
+    );
+
+    return isEmpty(fetchedData) ? <div>You have no data!</div> : (
     <div className="App">
       <Switch>
-        <Route>
-          <DynamicArticle article={Object.values(fetchedData)[1]} />
+              <Route>
+                  <ArticleList articles={articles} />
         </Route>
       </Switch>
     </div>
