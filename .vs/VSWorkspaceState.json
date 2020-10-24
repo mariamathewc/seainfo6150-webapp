@@ -3,9 +3,9 @@
     "",
     "\\public",
     "\\src",
-    "\\src\\Article",
     "\\src\\component-examples",
     "\\src\\component-examples\\DOM",
+    "\\src\\component-examples\\HelloUser",
     "\\src\\component-examples\\JsFundamentals",
     "\\src\\DynamicArticle"
   ],
